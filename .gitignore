@@ -1,0 +1,9 @@
+*.bak
+*.save
+*.tar.gz
+.DS_Store
+.vagrant/
+node_modules
+**/htdocs/**/*.html
+**/htdocs/assets/css/
+**/htdocs/components/
