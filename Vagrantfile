@@ -22,7 +22,7 @@ hostname        = "vaprobash-playground.dev"
 #   10.0.0.1    - 10.255.255.254
 #   172.16.0.1  - 172.31.255.254
 #   192.168.0.1 - 192.168.255.254
-server_ip             = "192.168.19.71"
+server_ip             = "192.168.19.83"
 server_cpus           = "1"   # Cores
 server_memory         = "2048" # MB
 server_swap           = "2048" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
