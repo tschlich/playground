@@ -1,0 +1,14 @@
+doctype html
+html(lang="de")
+  block head
+    include partials/head.pug
+
+  body
+    div#wrapper.container
+      header
+        h2
+          a(href="/") Mad Frontend
+      article
+        block content
+      block footer
+        include partials/footer.pug

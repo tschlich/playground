@@ -1,0 +1,65 @@
+extends layout.pug
+block content
+
+  h1 Basic Howtos
+  
+  p Hint: when you have been linked here, go back to
+    | the previous page after you completed the targeted howto
+
+  h3 
+    a( href = "#installNodejs" name = "installNodejs" ) install nodejs
+  p Go to 
+    a( href = "https://nodejs.org/en/download/" ) nodejs.org
+    | , download and install your system package
+
+  h3 
+    a( href = "#createProject" name = "createProject" ) create a project
+
+  ol
+
+    li create a project folder and move into it
+      pre
+        | cd ~/Sites/
+        | mkdir ProjectName
+        | cd ProjectName
+
+    li add a package file for nodejs modules
+      pre npm init
+
+    li add some nodejs modules, e.g. grunt
+      pre
+        | npm install --save-dev grunt
+    
+    li you will result in a package.json file like this
+      pre
+        | {
+        |   "name": "mad-frontend",
+        |   "version": "1.0.0",
+        |   "description": "testing frontend stuff",
+        |   "main": "index.js",
+        |   "scripts": {
+        |     "test": "echo \"Error: no test specified\" && exit 1"
+        |   },
+        |   "author": "thosh@mad-world.de",
+        |   "license": "ISC",
+        |   "devDependencies": {
+        |     "grunt": "^1.0.1",
+        |   }
+        | }
+
+  h3 
+    a( href = "#installGrunt" name = "installGrunt" ) install grunt
+  pre
+    | // global grunt command line interface installation 
+    | npm install -g grunt-cli
+    | 
+    | // install local grunt in project folder
+    | npm install --save-dev grunt
+    | 
+    | // install grunt-plugin for running tasks on save/change
+    | npm install --save-dev grunt-contrib-watch
+    
+  h3 
+    a( href = "#installGulp" name = "installGulp" ) install gulp
+  pre
+    | tbd

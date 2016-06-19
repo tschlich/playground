@@ -1,0 +1,21 @@
+{
+  "name": "mad-frontend",
+  "description": "testing frontend stuff",
+  "main": "index.js",
+  "authors": [
+    "github.com/tschlich"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

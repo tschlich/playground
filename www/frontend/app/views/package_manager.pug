@@ -1,0 +1,60 @@
+extends layout.pug
+block content
+
+  h2 Package Manager
+
+  h3
+    a( href = "https://bower.io", name = "bower" ) Bower
+
+  ol
+
+    li install 
+      a(href="https://nodejs.org/en/download/") bower
+      |  if not already done
+
+    li create package file 
+      i bower.json
+      pre bower init
+
+    li create a Bower configuration file to change the components path (optional) 
+      pre echo '{ "directory" : "htdocs/components" }' > .bowerrc
+
+    li add package(s)
+      pre
+        | // install for testing
+        | bower install PACKAGE
+        | 
+        | // install and save as a dependency
+        | bower install PACKAGE --save
+
+    li you will result in a 
+      i bower.json
+      |  file like this
+
+      pre
+        | {
+        |   "name": "mad-frontend",
+        |   "description": "testing frontend stuff",
+        |   "main": "index.js",
+        |   "authors": [
+        |     "mad-thosh@mad-world.de"
+        |   ],
+        |   "license": "ISC",
+        |   "homepage": "",
+        |   "private": true,
+        |   "ignore": [
+        |     "**/.*",
+        |     "node_modules",
+        |     "bower_components",
+        |     "test",
+        |     "tests"
+        |   ],
+        |   "dependencies": {
+        |     "jquery": "^3.0.0"
+        |   }
+        | }
+
+  h4 useful
+  ul
+    li
+      a(href="https://www.sitepoint.com/using-jade-and-grunt-to-speed-up-html-production/") using jade and grunt to speed up html production

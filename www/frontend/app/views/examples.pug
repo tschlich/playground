@@ -1,0 +1,73 @@
+extends layout.pug
+block content
+
+  h1 Example Files
+
+
+  h3 nodejs
+  p
+    i package.json:
+  pre
+    | {
+    |   "name": "mad-frontend",
+    |   "version": "1.0.0",
+    |   "description": "testing frontend stuff",
+    |   "main": "index.js",
+    |   "scripts": {
+    |     "test": "echo \"Error: no test specified\" && exit 1"
+    |   },
+    |   "author": "thosh@mad-world.de",
+    |   "license": "ISC",
+    |   "devDependencies": {
+    |     "grunt": "^1.0.1",
+    |     "grunt-contrib-pug": "^1.0.0",
+    |     "grunt-contrib-watch": "^1.0.0",
+    |     "pug": "^2.0.0-beta3"
+    |   }
+    | }
+
+  h3 bower
+  p
+    i bower.json:
+  pre
+    | asdf
+
+  p
+    i .bowerrc:
+  pre
+    | {
+    |   "directory" : "htdocs/components"
+    | }
+
+
+  h3 grunt
+  p
+    i Gruntfile.js:
+  pre
+    | module.exports = function(grunt) {
+    |   // Project configuration.
+    |   grunt.initConfig({
+    |     pug: {
+    |       compile: {
+    |         options: {
+    |           pretty: true,
+    |         },
+    |         files: {
+    |           'htdocs/index.html': 'app/views/index.pug',
+    |           'htdocs/preprocessing.html': 'app/views/preprocessing.pug'
+    |         }
+    |       }
+    |     },
+    |     watch: {
+    |       grunt: { files: ['Gruntfile.js'] },
+    |       pug: {
+    |         files: 'app/views/**/*.pug',
+    |         tasks: ['pug']
+    |       }
+    |     }
+    |   });
+    |   grunt.loadNpmTasks('grunt-contrib-pug');
+    |   grunt.loadNpmTasks('grunt-contrib-watch');
+    |   grunt.registerTask('build', 'Convert Pug templates into html templates', ['pug']);
+    |   grunt.registerTask('default','Convert Pug templates into html templates', ['pug','watch']);
+    | };

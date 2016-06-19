@@ -1,0 +1,135 @@
+extends layout.pug
+block content
+
+  h2 Preprocessing
+
+  h3
+    a( href = "#css",  name = "css"  ) CSS
+  h4
+    a( href = "#less", name = "less" ) less
+  ol
+    li
+      a( href = "/howto.html#installNodejs" ) install nodejs
+
+    li
+      a( href = "/howto.html#createProject" ) create a project
+
+    li
+      a( href = "/howto.html#installGrunt" ) install grunt
+    
+    li install grunt-plugin for less compiling
+      pre npm install grunt-contrib-less --save-dev
+    
+      
+    li edit your Gruntfile.js
+      pre
+        | module.exports = function(grunt)
+        |   grunt.initConfig({
+        |     less: {
+        |       development: {
+        |         options: {
+        |           paths: ['htdocs/assets/css']
+        |         },
+        |         files: {
+        |           'htdocs/assets/css/mad.css': 'app/less/mad.less'
+        |         }
+        |       },
+        |       production: {
+        |         options: {
+        |           paths: ['assets/css'],
+        |         },
+        |         files: {
+        |           'htdocs/assets/css/mad.dev.css': 'app/less/mad.less'
+        |         }
+        |       }
+        |     }
+        |   };
+        |   grunt.loadNpmTasks('grunt-contrib-less');
+        |   grunt.loadNpmTasks('grunt-contrib-watch');
+        |   grunt.registerTask('build', 'Convert less templates into css', ['less']);
+        |   grunt.registerTask('default','Convert less templates into css', ['less','watch']);
+
+    li compile less into css
+    pre
+      | // compile only - production and development
+      | grunt less
+      | 
+      | // compile only - production or development
+      | grunt less production
+      | grunt less development
+      | 
+      | // watch changed files to compile automatically
+      | grunt watch
+      | 
+      | // if you defined the default task like above, simply run
+      | grunt
+    
+  h4
+    a( href = "#sass", name = "sass" ) Sass
+
+  h3
+    a(href="#html", name="html") HTML
+  h4
+    a(href="http://jade-lang.com/") Pug (Jade)
+
+  ol
+
+    li
+      a( href = "/howto.html#installNodejs" ) install nodejs
+
+    li
+      a( href = "/howto.html#createProject" ) create a project
+
+    li
+      a( href = "/howto.html#installGrunt" ) install grunt
+    
+    li install grunt-plugin for pug tasks
+      pre npm install --save-dev grunt-contrib-pug
+    
+    li install pug
+      pre npm install --save-dev pug
+      
+    li edit your Gruntfile.js
+      pre
+        | module.exports = function(grunt)
+        |   grunt.initConfig({
+        |     pug: {
+        |       compile: {
+        |         options: {
+        |           pretty: true,
+        |         },
+        |         files: {
+        |           'htdocs/index.html': 'app/views/index.pug',
+        |           'htdocs/preprocessing.html': 'app/views/preprocessing.pug'
+        |         }
+        |       }
+        |     },
+        |     watch: {
+        |       grunt: { files: ['Gruntfile.js'] },
+        |       pug: {
+        |         files: 'app/views/**/*.pug',
+        |         tasks: ['pug']
+        |       }
+        |     }
+        |   });
+        |   grunt.loadNpmTasks('grunt-contrib-pug');
+        |   grunt.loadNpmTasks('grunt-contrib-watch');
+        |   grunt.registerTask('build', 'Convert Pug templates into html templates', ['pug']);
+        |   grunt.registerTask('default','Convert Pug templates into html templates', ['pug','watch']);
+        | };
+
+    li compile pug into html
+    pre
+      | // compile only
+      | grunt pug
+      | 
+      | // watch changed files to compile automatically
+      | grunt watch
+      | 
+      | // if you defined the default task like above, simply run
+      | grunt
+
+  h4 useful
+  ul
+    li
+      a(href="https://www.sitepoint.com/using-jade-and-grunt-to-speed-up-html-production/") using jade and grunt to speed up html production
