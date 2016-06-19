@@ -3,7 +3,7 @@
 # Run this as sudo!
 # Do not run this outside the vaprobash vm!
 
-SERVER_NAME="192.168.19.71.xip.io"
+SERVER_NAME="192.168.19.83.xip.io"
 PROJECT_ROOT="/vagrant/www"
 BACKUP_FILENAME="backup_www_$(date '+%Y.%m.%d_%H-%M-%S').tar.gz"
 
