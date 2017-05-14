@@ -1,3 +1,5 @@
+.idea/
+www/
 *.bak
 *.save
 *.tar.gz
